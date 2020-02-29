@@ -1,0 +1,27 @@
+{
+  "name": "vue-ssr",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "dev": "webpack-dev-server --config webpack.config.js --mode=development",
+    "prod": "webpack --config webpack.config.js --mode=production",
+    "lint": "eslint --ext .js,.vue ./",
+    "lint:fix": "eslint --ext .js,.vue ./ --fix"
+  },
+  "dependencies": {
+    "express": "*",
+    "vue": "*",
+    "vue-server-renderer": "*"
+  },
+  "devDependencies": {
+    "eslint": "*",
+    "eslint-config-airbnb-base": "*",
+    "eslint-import-resolver-webpack": "*",
+    "eslint-plugin-import": "*",
+    "eslint-plugin-vue": "*"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}
