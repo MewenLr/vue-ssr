@@ -1,34 +1,37 @@
 const fs = require('fs')
-const path = require('path')
-const express = require('express')
+const Koa = require('koa')
+const Router = require('koa-router')
 const renderer = require('vue-server-renderer').createRenderer({
   template: fs.readFileSync('./public/index.html', 'utf-8'),
 })
 const bundle = require('./dist/server.bundle.js')
 
-const server = express()
+const context = {
+  title: 'Vue Js - Server Renderer',
+  meta: `
+    <meta description="vuejs server side renderer">
+  `,
+}
 
-server.use('/dist', express.static(path.join(__dirname, './dist')))
+const server = new Koa()
+const router = new Router()
 
-server.get('*', (req, res) => {
-  bundle.default({ url: req.url }).then((app) => {
-    const context = {
-      title: 'Vue Js - Server Renderer',
-      meta: `
-        <meta description="vuejs server side renderer">
-      `,
+router.get('*', async (ctx) => {
+  try {
+    const app = await bundle.default({ url: ctx.url })
+    const html = await renderer.renderToString(app, context)
+    return ctx.body = html
+  } catch (e) {
+    console.error('here is e =>', e)
+    if (e.code === 404) {
+      ctx.status = 404
+      return ctx.body = 'Page not found'
     }
-
-    renderer.renderToString(app, context, (err, html) => {
-      if (err) {
-        if (err.code === 404) return res.status(404).end('Page not found')
-        return res.status(500).end('Internal Server Error')
-      }
-      return res.end(html)
-    })
-  }, (err) => {
-    console.log('here is err =>', err)
-  })
+    ctx.status = 500
+    return ctx.body = 'Internal Server Error'
+  }
 })
+
+server.use(router.routes()).use(router.allowedMethods())
 
 server.listen(8080)

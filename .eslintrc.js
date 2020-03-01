@@ -29,6 +29,7 @@ module.exports = {
   ],
   'rules': {
     'linebreak-style': 'off',
+    'no-return-assign': 'off',
     'semi': ['error', 'never'],
     'quotes': ['error', 'single'],
     'prefer-promise-reject-errors': 'off',
