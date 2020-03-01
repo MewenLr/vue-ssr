@@ -17,11 +17,11 @@ module.exports = {
     'SharedArrayBuffer': 'readonly',
     'expect': true,
   },
-  // 'parser': 'vue-eslint-parser',
+  'parser': 'vue-eslint-parser',
   'parserOptions': {
     'ecmaVersion': 2018,
     'sourceType': 'module',
-    // 'parser': 'babel-eslint',
+    'parser': 'babel-eslint',
     'allowImportExportEverywhere': true,
   },
   'plugins': [
@@ -31,6 +31,7 @@ module.exports = {
     'linebreak-style': 'off',
     'semi': ['error', 'never'],
     'quotes': ['error', 'single'],
+    'prefer-promise-reject-errors': 'off',
     'import/no-extraneous-dependencies': ['error', { 'devDependencies': true }]
   }
 };
