@@ -4,7 +4,7 @@ const Router = require('koa-router')
 const renderer = require('vue-server-renderer').createRenderer({
   template: fs.readFileSync('./public/index.html', 'utf-8'),
 })
-const bundle = require('./dist/server.bundle.js')
+const bundle = require('./dist/js/server.bundle.js')
 
 const context = {
   title: 'Vue Js - Server Renderer',

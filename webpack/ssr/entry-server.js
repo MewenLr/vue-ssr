@@ -1,4 +1,4 @@
-import createApp from './src/app'
+import createApp from '../../src/app'
 
 export default (context) => new Promise((res, rej) => {
   const { app, router } = createApp()

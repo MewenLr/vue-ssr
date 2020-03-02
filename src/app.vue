@@ -1,6 +1,7 @@
 <template>
   <div id="app" class="app">
     Here in app component
+    <p><hello /></p>
     <p>
       <router-link to="/">Go To Home</router-link>
       <router-link to="/about">Go To About</router-link>
@@ -10,8 +11,13 @@
 </template>
 
 <script>
+import Hello from '@/components/hello.vue'
+
 export default {
   name: 'App',
+  components: {
+    Hello,
+  },
 }
 </script>
 

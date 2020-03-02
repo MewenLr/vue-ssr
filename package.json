@@ -4,15 +4,13 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "dev": "webpack-dev-server --config webpack.config.js --mode=development",
-    "prod": "webpack --config webpack.config.js --mode=production",
+    "build": "npm run build-client && npm run build-server",
+    "build-client": "webpack --config ./webpack/webpack.prod.js --mode=production --env.client --progress --hide-modules",
+    "build-server": "webpack --config ./webpack/webpack.prod.js --mode=production --env.server --progress --hide-modules",
+    "dev": "webpack-dev-server --config ./webpack/webpack.dev.js --mode=development",
     "lint": "eslint --ext .js,.vue ./",
     "lint:fix": "eslint --ext .js,.vue ./ --fix",
-    "start": "npm run build && npm run start-server",
-    "build": "npm run build-client && npm run build-server",
-    "build-client": "webpack --config webpack.config.js --progress --hide-modules",
-    "build-server": "webpack --config webpack.server.js --progress --hide-modules",
-    "start-server": "node server.js"
+    "prod": "npm run build && node server.js"
   },
   "dependencies": {
     "express": "*",
@@ -36,6 +34,7 @@
     "eslint-plugin-import": "*",
     "eslint-plugin-vue": "*",
     "friendly-errors-webpack-plugin": "*",
+    "html-webpack-plugin": "*",
     "path": "*",
     "vue-eslint-parser": "*",
     "vue-jest": "*",
@@ -46,7 +45,8 @@
     "webpack-bundle-analyzer": "*",
     "webpack-cli": "*",
     "webpack-dev-server": "*",
-    "webpack-merge": "*"
+    "webpack-merge": "*",
+    "webpack-node-externals": "*"
   },
   "keywords": [],
   "author": "",
