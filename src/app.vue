@@ -1,7 +1,7 @@
 <template>
   <div id="app" class="app">
     Here in app component
-    <p><hello /></p>
+    <hello />
     <p>
       <router-link to="/">Go To Home</router-link>
       <router-link to="/about">Go To About</router-link>

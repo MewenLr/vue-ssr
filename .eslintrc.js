@@ -1,3 +1,5 @@
+const path = require('path')
+
 module.exports = {
   'env': {
     'browser': true,
@@ -6,7 +8,11 @@ module.exports = {
     'node': true,
   },
   'settings': {
-    'import/resolver': 'webpack',
+    'import/resolver': {
+      'webpack': {
+        'config': './webpack/webpack.config.js',
+      },
+    },
   },
   'extends': [
     'airbnb-base',

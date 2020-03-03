@@ -4,6 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+    "analyze:client": "webpack --config ./webpack/webpack.prod.js --mode=production --env.client --analyse",
+    "analyze:server": "webpack --config ./webpack/webpack.prod.js --mode=production --env.server --analyse",
     "build": "npm run build-client && npm run build-server",
     "build-client": "webpack --config ./webpack/webpack.prod.js --mode=production --env.client --progress --hide-modules",
     "build-server": "webpack --config ./webpack/webpack.prod.js --mode=production --env.server --progress --hide-modules",

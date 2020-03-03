@@ -1,10 +1,15 @@
 const path = require('path')
 const merge = require('webpack-merge')
 const nodeExternals = require('webpack-node-externals')
-const baseWebpackConfig = require('../webpack.config')
+const { CleanWebpackPlugin } = require('clean-webpack-plugin')
+const { BundleAnalyzerPlugin } = require('webpack-bundle-analyzer')
+
+const modes = require('./utils/modes')
+const baseWebpackConfig = require('./webpack.config')
 
 module.exports = (env) => (
   merge(baseWebpackConfig, {
+
     target: env.server ? 'node' : 'web',
 
     entry: env.server
@@ -19,14 +24,19 @@ module.exports = (env) => (
       }
       : {
         path: path.resolve(__dirname, '..', 'dist'),
-        filename: 'js/entry.bundle.js',
+        filename: 'js/client.bundle.js',
       },
 
-    externals: env.client
+    externals: env.server
       ? nodeExternals({ whitelist: [/\.css$/, /\.sass$/] })
       : '',
 
     devtool: false,
+
+    plugins: [
+      ...(modes.isAnalyze ? [new BundleAnalyzerPlugin()] : []),
+      ...(env.client && !modes.isAnalyze ? [new CleanWebpackPlugin()] : []),
+    ],
 
   })
 )
