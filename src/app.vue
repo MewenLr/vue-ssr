@@ -18,6 +18,9 @@ export default {
   components: {
     Hello,
   },
+  mounted() {
+    console.log('App mounted')
+  },
 }
 </script>
 

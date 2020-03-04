@@ -1,8 +1,13 @@
 const path = require('path')
+const CopyPlugin = require('copy-webpack-plugin')
 const HtmlPlugin = require('html-webpack-plugin')
 const { VueLoaderPlugin } = require('vue-loader')
+// const TerserPlugin = require('terser-webpack-plugin')
 
-const html = require('./plugins/html')
+const htmlOpts = require('./plugins/html')
+const copyOpts = require('./plugins/copy')
+// const chunksOpts = require('./optimization/chunks')
+// const terserOpts = require('./optimization/terser')
 
 module.exports = {
 
@@ -46,7 +51,16 @@ module.exports = {
 
   plugins: [
     new VueLoaderPlugin(),
-    new HtmlPlugin(html),
+    new CopyPlugin(copyOpts),
+    new HtmlPlugin(htmlOpts),
   ],
+
+  // optimization: {
+  //   minimize: true,
+  //   minimizer: [
+  //     new TerserPlugin(terserOpts),
+  //   ],
+  //   splitChunks: chunksOpts,
+  // },
 
 }

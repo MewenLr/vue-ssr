@@ -1,23 +1,30 @@
-const fs = require('fs')
 const Koa = require('koa')
+const path = require('path')
+const serve = require('koa-static')
 const Router = require('koa-router')
-const renderer = require('vue-server-renderer').createRenderer({
-  template: fs.readFileSync('./dist/index.html', 'utf-8'),
-})
-const bundle = require('./dist/js/server.bundle.js')
+const { createBundleRenderer } = require('vue-server-renderer')
+const template = require('fs').readFileSync('./public/index.html', 'utf-8')
 
-const context = { }
+const serverBundle = require('./dist/vue-ssr-server-bundle.json')
+const clientManifest = require('./dist/vue-ssr-client-manifest.json')
 
 const server = new Koa()
 const router = new Router()
 
+const renderer = createBundleRenderer(serverBundle, {
+  runInNewContext: false,
+  template,
+  clientManifest,
+})
+
+server.use(serve(path.join(__dirname, 'dist')))
+
 router.get('*', async (ctx) => {
   try {
-    const app = await bundle.default({ url: ctx.url })
-    const html = await renderer.renderToString(app, context)
+    const context = { url: ctx.url }
+    const html = await renderer.renderToString(context)
     return ctx.body = html
   } catch (e) {
-    console.error('here is e =>', e)
     if (e.code === 404) {
       ctx.status = 404
       return ctx.body = 'Page not found'

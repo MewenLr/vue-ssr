@@ -9,6 +9,11 @@ module.exports = merge(baseWebpackConfig, {
 
   entry: path.join(__dirname, 'ssr/entry-client.js'),
 
+  output: {
+    filename: 'js/client.bundle.js',
+    chunkFilename: 'js/[name].chunk.js',
+  },
+
   devServer: {
     hot: true,
     quiet: true,
