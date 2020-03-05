@@ -3,13 +3,19 @@ import Vuex from 'vuex'
 
 Vue.use(Vuex)
 
-export default new Vuex.Store({
-  state: {
-  },
-  mutations: {
-  },
+export default () => new Vuex.Store({
+
+  state: () => ({
+    stCount: 0,
+    stTestClient: 'State Test from Vuex Client',
+  }),
+
   actions: {
+    actIncCount: ({ commit }) => commit('mutIncCount'),
   },
-  modules: {
+
+  mutations: {
+    mutIncCount: (state) => state.stCount += 1,
   },
+
 })

@@ -12,9 +12,9 @@ const server = new Koa()
 const router = new Router()
 
 const renderer = createBundleRenderer(serverBundle, {
-  runInNewContext: false,
   template,
   clientManifest,
+  runInNewContext: false,
 })
 
 server.use(serve(path.join(__dirname, 'dist')))

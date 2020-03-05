@@ -1,6 +1,6 @@
 <template>
   <div id="app" class="app">
-    Here in app component
+    Here in app component with stCount prefetch : {{ stCount }}
     <hello />
     <p>
       <router-link to="/">Go To Home</router-link>
@@ -11,6 +11,7 @@
 </template>
 
 <script>
+import { mapState, mapActions } from 'vuex'
 import Hello from '@/components/hello.vue'
 
 export default {
@@ -18,8 +19,24 @@ export default {
   components: {
     Hello,
   },
+  computed: {
+    ...mapState({
+      stCount: (state) => state.stCount, // prefetch with server *
+      stTestClient: (state) => state.stTestClient, // fetch with client
+    }),
+  },
+  serverPrefetch() { // * prefetch before rendering
+    return this.actIncCount()
+  },
   mounted() {
-    console.log('App mounted')
+    // execute action if server error
+    // and allow DevServer to simulate serverPrefetch
+    if (!this.stCount) this.actIncCount()
+  },
+  methods: {
+    ...mapActions({
+      actIncCount: 'actIncCount',
+    }),
   },
 }
 </script>
