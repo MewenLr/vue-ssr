@@ -1,8 +1,8 @@
 import Vue from 'vue'
+import Meta from 'vue-meta'
 import Router from 'vue-router'
-import Home from '@/components/pages/home.vue'
-import About from '@/components/pages/about.vue'
 
+Vue.use(Meta)
 Vue.use(Router)
 
 export default () => new Router({
@@ -11,13 +11,12 @@ export default () => new Router({
     {
       name: 'home',
       path: '/',
-      component: Home,
+      component: () => import(/* webpackChunkName: "home" */ '@/components/pages/home.vue'),
     },
     {
       name: 'about',
       path: '/about',
-      component: About,
-      // component: () => import(/* webpackChunkName: "about" */ '@/components/pages/about.vue'),
+      component: () => import(/* webpackChunkName: "about" */ '@/components/pages/about.vue'),
     },
   ],
 })

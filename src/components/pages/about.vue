@@ -15,7 +15,6 @@ export default {
   },
   mounted() {
     this.actIncCount()
-    console.log('here is prefetch stCount >>', this.stCount)
   },
   methods: {
     ...mapActions({
@@ -25,8 +24,7 @@ export default {
 }
 </script>
 
-<style>
-.about {
-  color: coral;
-}
+<style lang="sass">
+.about
+  color: coral
 </style>

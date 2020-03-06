@@ -2,12 +2,11 @@ const path = require('path')
 const CopyPlugin = require('copy-webpack-plugin')
 const HtmlPlugin = require('html-webpack-plugin')
 const { VueLoaderPlugin } = require('vue-loader')
-// const TerserPlugin = require('terser-webpack-plugin')
+const CaseSensitivePathsPlugin = require('case-sensitive-paths-webpack-plugin')
 
+const loaders = require('./utils/loaders')
 const htmlOpts = require('./plugins/html')
 const copyOpts = require('./plugins/copy')
-// const chunksOpts = require('./optimization/chunks')
-// const terserOpts = require('./optimization/terser')
 
 module.exports = {
 
@@ -17,50 +16,13 @@ module.exports = {
     modules: ['node_modules'],
   },
 
-  module: {
-    rules: [
-
-      /* vue-loader */
-      {
-        test: /\.vue$/,
-        use: [
-          { loader: 'vue-loader' },
-        ],
-      },
-
-      /* babel-loader */
-      {
-        test: /\.js$/,
-        exclude: /(node_modules|bower_components)/,
-        use: [
-          { loader: 'babel-loader' },
-        ],
-      },
-
-      /* css-loader */
-      {
-        test: /\.css$/,
-        use: [
-          { loader: 'vue-style-loader' },
-          { loader: 'css-loader', options: { sourceMap: false } },
-        ],
-      },
-
-    ],
-  },
+  module: { rules: loaders },
 
   plugins: [
     new VueLoaderPlugin(),
     new CopyPlugin(copyOpts),
     new HtmlPlugin(htmlOpts),
+    new CaseSensitivePathsPlugin(),
   ],
-
-  // optimization: {
-  //   minimize: true,
-  //   minimizer: [
-  //     new TerserPlugin(terserOpts),
-  //   ],
-  //   splitChunks: chunksOpts,
-  // },
 
 }

@@ -1,11 +1,11 @@
 const path = require('path')
-const modes = require('../utils/modes')
+const env = require('../utils/environments')
 
 module.exports = {
   template: path.resolve(__dirname, '../..', 'public/index.base.html'),
-  filename: modes.isProd
+  filename: env.prod
     ? path.resolve(__dirname, '../..', 'public/index.html')
     : /* default */ 'index.html',
-  customBody: modes.isProd ? '<!--vue-ssr-outlet-->' : '<div id="app"></div>',
-  inject: modes.isDev,
+  customBody: env.prod ? '<!--vue-ssr-outlet-->' : '<div id="app"></div>',
+  inject: env.dev,
 }

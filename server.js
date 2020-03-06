@@ -17,6 +17,7 @@ const renderer = createBundleRenderer(serverBundle, {
   runInNewContext: false,
 })
 
+// in production it's better to serve static with nginx
 server.use(serve(path.join(__dirname, 'dist')))
 
 router.get('*', async (ctx) => {
@@ -29,6 +30,7 @@ router.get('*', async (ctx) => {
       ctx.status = 404
       return ctx.body = 'Page not found'
     }
+    console.error('[err] >>', e)
     ctx.status = 500
     return ctx.body = 'Internal Server Error'
   }

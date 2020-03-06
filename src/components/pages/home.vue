@@ -8,8 +8,7 @@ export default {
 }
 </script>
 
-<style>
-.home {
-  color: green;
-}
+<style lang="sass">
+.home
+  color: $regal-blue
 </style>

@@ -2,8 +2,8 @@ import Vue from 'vue'
 import { sync } from 'vuex-router-sync'
 
 import App from './app.vue'
-import createRouter from './router'
 import createStore from './store'
+import createRouter from './router'
 
 export default () => {
   const router = createRouter()

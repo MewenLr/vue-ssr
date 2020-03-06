@@ -40,6 +40,7 @@ module.exports = {
     'quotes': ['error', 'single'],
     'no-underscore-dangle': 'off',
     'prefer-promise-reject-errors': 'off',
+    "no-console": ["error", { allow: ["info", "warn", "error"] }],
     'import/no-extraneous-dependencies': ['error', { 'devDependencies': true }],
     'no-param-reassign': ['error', {'props': true, 'ignorePropertyModificationsFor': ['state', 'ctx', 'context'] }]
   }

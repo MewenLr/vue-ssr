@@ -1,5 +1,6 @@
 <template>
   <div id="app" class="app">
+    <img src="@/assets/images/vue.png" height="50px" width="50px"/>
     Here in app component with stCount prefetch : {{ stCount }}
     <hello />
     <p>
@@ -21,8 +22,8 @@ export default {
   },
   computed: {
     ...mapState({
-      stCount: (state) => state.stCount, // prefetch with server *
-      stTestClient: (state) => state.stTestClient, // fetch with client
+      stCount: (state) => state.stCount, // prefetch in server *
+      stTestClient: (state) => state.stTestClient, // fetch in browser
     }),
   },
   serverPrefetch() { // * prefetch before rendering
@@ -30,7 +31,7 @@ export default {
   },
   mounted() {
     // execute action if server error
-    // and allow DevServer to simulate serverPrefetch
+    // or allow DevServer to simulate serverPrefetch
     if (!this.stCount) this.actIncCount()
   },
   methods: {
@@ -41,10 +42,9 @@ export default {
 }
 </script>
 
-<style>
-.app {
-  width: 500px;
-  height: 500px;
-  background-color: lightblue;
-}
+<style lang="sass">
+.app
+  width: 500px
+  height: 500px
+  background-color: lightblue
 </style>
