@@ -6,6 +6,7 @@ module.exports = {
     'es6': true,
     'mocha': true,
     'node': true,
+    'jest': true,
   },
   'settings': {
     'import/resolver': {

@@ -1,18 +1,4 @@
 {
-  "name": "vue-ssr",
-  "version": "1.0.0",
-  "description": "",
-  "scripts": {
-    "analyze": "webpack --config ./webpack/webpack.prod.js --mode=production --client --analyze",
-    "build": "npm run build:client && npm run build:server",
-    "build:client": "webpack --config ./webpack/webpack.prod.js --mode=production --client --progress --hide-modules",
-    "build:server": "webpack --config ./webpack/webpack.prod.js --mode=production --server --progress --hide-modules",
-    "dev": "webpack-dev-server --config ./webpack/webpack.dev.js --mode=development",
-    "lint": "eslint --ext .js,.vue ./",
-    "lint:fix": "eslint --ext .js,.vue ./ --fix",
-    "prod": "npm run build && node server.js",
-    "test": "jest"
-  },
   "dependencies": {
     "koa": "*",
     "koa-router": "*",
@@ -68,8 +54,5 @@
     "webpack-dev-server": "*",
     "webpack-merge": "*",
     "webpack-node-externals": "*"
-  },
-  "keywords": [],
-  "author": "",
-  "license": "ISC"
+  }
 }

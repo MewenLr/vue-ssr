@@ -42,7 +42,6 @@ module.exports = merge(baseWebpackConfig, {
   devtool: false,
 
   plugins: [
-    ...(env.server ? [new VueSSRServerPlugin()] : []),
     ...(env.client ? [
       new VueSSRClientPlugin(),
       new MiniCssExtractPlugin({
@@ -50,6 +49,7 @@ module.exports = merge(baseWebpackConfig, {
         chunkFilename: 'css/[name].chunk.[hash:8].css',
       }),
     ] : []),
+    ...(env.server ? [new VueSSRServerPlugin()] : []),
     ...(env.analyze ? [new BundleAnalyzerPlugin()] : []),
     ...(env.client && !env.analyze ? [new CleanWebpackPlugin()] : []),
   ],
