@@ -1,5 +1,5 @@
-<template>
-  <div class="home">Here in Home component</div>
+<template lang="pug">
+  .home Here in Home component
 </template>
 
 <script>

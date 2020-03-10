@@ -1,7 +1,6 @@
-<template>
-  <div class="hello">
-    <p>Here in hello component</p>
-  </div>
+<template lang="pug">
+  .hello
+    p Here in Hello component
 </template>
 
 <script>

@@ -1,14 +1,12 @@
-<template>
-  <div id="app" class="app">
-    <img src="@/assets/images/vue.png" height="50px" width="50px"/>
-    Here in app component with stCount prefetch : {{ stCount }}
-    <hello />
-    <p>
-      <router-link to="/">Go To Home</router-link>
-      <router-link to="/about">Go To About</router-link>
-    </p>
-    <router-view></router-view>
-  </div>
+<template lang="pug">
+  #app.app
+    img(src="@/assets/images/vue.png" height="50px" width="50px")
+    | Here in app component with stCount prefetch : {{ stCount }}
+    hello
+    p
+      router-link(to="/") Go to Home
+      router-link(to="/") Go to About
+    router-view
 </template>
 
 <script>

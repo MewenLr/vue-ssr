@@ -1,5 +1,5 @@
-<template>
-  <div class="about">Here in About component</div>
+<template lang="pug">
+  .about Here in About component
 </template>
 
 <script>
