@@ -28,6 +28,9 @@ module.exports = {
     mangle: {
       safari10: true,
     },
+    output: {
+      comments: false,
+    },
   },
   sourceMap: true,
   cache: true,

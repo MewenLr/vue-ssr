@@ -60,10 +60,7 @@ module.exports = merge(baseWebpackConfig, {
       new TerserPlugin(terserOpts),
       new OptimizeCSSAssetsPlugin({}),
     ],
-    splitChunks: {
-      // ...chunksOpts,
-      ...(env.client ? { name: 'manifest', minChunks: Infinity, ...chunksOpts } : {}),
-    },
+    splitChunks: chunksOpts,
   },
 
 })

@@ -5,7 +5,7 @@
     hello
     p
       router-link(to="/") Go to Home
-      router-link(to="/") Go to About
+      router-link(to="/about") Go to About
     router-view
 </template>
 
