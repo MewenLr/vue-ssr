@@ -7,16 +7,19 @@
       router-link(to="/") Go to Home
       router-link(to="/about") Go to About
     router-view
+    lazy-img
 </template>
 
 <script>
 import { mapState, mapActions } from 'vuex'
 import Hello from '@/components/hello.vue'
+import LazyImg from '@/components/lazy-img.vue'
 
 export default {
   name: 'App',
   components: {
     Hello,
+    LazyImg,
   },
   computed: {
     ...mapState({
@@ -43,6 +46,6 @@ export default {
 <style lang="sass">
 .app
   width: 500px
-  height: 500px
+  height: 200vh
   background-color: lightblue
 </style>

@@ -17,6 +17,7 @@ module.exports = merge(baseWebpackConfig, {
   devServer: {
     hot: true,
     quiet: true,
+    host: '0.0.0.0',
     historyApiFallback: true,
     watchOptions: {
       poll: true,

@@ -5,12 +5,13 @@
   "scripts": {
     "analyze": "webpack --config ./webpack/webpack.prod.js --mode=production --client --analyze",
     "build": "npm run build:client && npm run build:server",
-    "build:client": "webpack --config ./webpack/webpack.prod.js --mode=production --client --progress --hide-modules",
-    "build:server": "webpack --config ./webpack/webpack.prod.js --mode=production --server --progress --hide-modules",
+    "build:client": "webpack --config ./webpack/webpack.prod.js --mode=production --client --hide-modules",
+    "build:server": "webpack --config ./webpack/webpack.prod.js --mode=production --server --hide-modules",
     "dev": "webpack-dev-server --config ./webpack/webpack.dev.js --mode=development",
     "lint": "eslint --ext .js,.vue ./",
     "lint:fix": "eslint --ext .js,.vue ./ --fix",
-    "prod": "npm run build && node server.js",
+    "prod": "npm run build && npm run start",
+    "start": "node server.js",
     "test": "jest"
   },
   "dependencies": {
@@ -22,7 +23,8 @@
     "vue-meta": "*",
     "vue-router": "*",
     "vuex-router-sync": "*",
-    "vue-server-renderer": "*"
+    "vue-server-renderer": "*",
+    "v-lazy-image": "*"
   },
   "devDependencies": {
     "@babel/core": "*",

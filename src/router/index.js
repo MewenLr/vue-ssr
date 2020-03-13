@@ -1,8 +1,6 @@
 import Vue from 'vue'
-import Meta from 'vue-meta'
 import Router from 'vue-router'
 
-Vue.use(Meta)
 Vue.use(Router)
 
 export default () => new Router({

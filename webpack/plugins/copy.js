@@ -5,6 +5,6 @@ module.exports = [
     from: path.resolve(__dirname, '../..', 'public'),
     to: 'public',
     toType: 'dir',
-    ignore: [{ glob: '*.html', matchBase: false }],
+    ignore: [{ glob: 'index.html', matchBase: false }],
   },
 ]
