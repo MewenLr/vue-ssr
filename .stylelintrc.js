@@ -4,7 +4,7 @@ module.exports = {
     'stylelint-scss',
   ],
   'rules': {
-    'indentation': 'tab',
+    'indentation': 2,
     'number-leading-zero': 'never',
   }
 }

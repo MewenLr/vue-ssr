@@ -46,12 +46,12 @@ export default {
 
 <style lang="sass">
 .app
-  width: 500px
-  height: 200vh
   background-color: lightblue
+  height: 200vh
+  width: 500px
 
 .lazy-img
-  width: 250px
   height: 150px
   margin-top: 100vh
+  width: 250px
 </style>
