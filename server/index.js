@@ -3,10 +3,10 @@ const path = require('path')
 const serve = require('koa-static')
 const Router = require('koa-router')
 const { createBundleRenderer } = require('vue-server-renderer')
-const template = require('fs').readFileSync('./webpack/ssr/index.html', 'utf-8')
+const template = require('fs').readFileSync(path.join(__dirname, './index.html'), 'utf-8')
 
-const serverBundle = require('./dist/vue-ssr-server-bundle.json')
-const clientManifest = require('./dist/vue-ssr-client-manifest.json')
+const serverBundle = require('../dist/vue-ssr-server-bundle.json')
+const clientManifest = require('../dist/vue-ssr-client-manifest.json')
 
 const server = new Koa()
 const router = new Router()
@@ -18,7 +18,7 @@ const renderer = createBundleRenderer(serverBundle, {
 })
 
 // in production it's better to serve static with nginx
-server.use(serve(path.join(__dirname, 'dist')))
+server.use(serve(path.resolve(__dirname, '..', 'dist')))
 
 router.get('*', async (ctx) => {
   try {

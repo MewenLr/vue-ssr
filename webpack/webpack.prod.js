@@ -9,7 +9,7 @@ const VueSSRClientPlugin = require('vue-server-renderer/client-plugin')
 const VueSSRServerPlugin = require('vue-server-renderer/server-plugin')
 const OptimizeCSSAssetsPlugin = require('optimize-css-assets-webpack-plugin')
 
-const env = require('./utils/environments')
+const env = require('./helpers/environments')
 const terserOpts = require('./optimization/terser')
 const chunksOpts = require('./optimization/chunks')
 const baseWebpackConfig = require('./webpack.config')
@@ -19,8 +19,8 @@ module.exports = merge(baseWebpackConfig, {
   target: env.server ? 'node' : 'web',
 
   entry: env.server
-    ? { server: path.join(__dirname, 'ssr/entry-server.js') }
-    : { client: path.join(__dirname, 'ssr/entry-client.js') },
+    ? { server: path.resolve(__dirname, '..', 'server/entry-server.js') }
+    : { client: path.resolve(__dirname, '..', 'server/entry-client.js') },
 
   output: env.server
     ? {

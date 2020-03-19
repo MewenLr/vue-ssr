@@ -17,7 +17,7 @@ module.exports = {
   },
   'extends': [
     'airbnb-base',
-    'plugin:vue/essential',
+    'plugin:vue/strongly-recommended',
   ],
   'globals': {
     'Atomics': 'readonly',

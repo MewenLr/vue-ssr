@@ -7,19 +7,20 @@
       router-link(to="/") Go to Home
       router-link(to="/about") Go to About
     router-view
-    lazy-img
+    v-lazy-image.lazy-img(
+      :src="require('@/assets/images/telescope.jpg')"
+      :src-placeholder="require('@/assets/images/telescope-low.jpg')"
+    )
 </template>
 
 <script>
 import { mapState, mapActions } from 'vuex'
 import Hello from '@/components/hello.vue'
-import LazyImg from '@/components/lazy-img.vue'
 
 export default {
   name: 'App',
   components: {
     Hello,
-    LazyImg,
   },
   computed: {
     ...mapState({
@@ -48,4 +49,9 @@ export default {
   width: 500px
   height: 200vh
   background-color: lightblue
+
+.lazy-img
+  width: 250px
+  height: 150px
+  margin-top: 100vh
 </style>

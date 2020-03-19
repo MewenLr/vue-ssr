@@ -7,7 +7,7 @@ const baseWebpackConfig = require('./webpack.config')
 
 module.exports = merge(baseWebpackConfig, {
 
-  entry: path.join(__dirname, 'ssr/entry-client.js'),
+  entry: path.resolve(__dirname, '..', 'server/entry-client.js'),
 
   output: {
     filename: 'js/client.bundle.js',

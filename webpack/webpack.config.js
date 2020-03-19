@@ -4,9 +4,9 @@ const HtmlPlugin = require('html-webpack-plugin')
 const { VueLoaderPlugin } = require('vue-loader')
 const CaseSensitivePathsPlugin = require('case-sensitive-paths-webpack-plugin')
 
-const loaders = require('./utils/loaders')
 const htmlOpts = require('./plugins/html')
 const copyOpts = require('./plugins/copy')
+const loaders = require('./helpers/loaders')
 
 module.exports = {
 
