@@ -30,7 +30,9 @@ module.exports = [
   {
     test: /\.pug$/,
     use: [
-      { loader: 'pug-plain-loader' },
+      {
+        loader: 'pug-plain-loader',
+      },
     ],
   },
 
@@ -63,7 +65,9 @@ module.exports = [
       env.prod && env.client
         ? { loader: MiniCssExtractPlugin.loader }
         : { loader: 'vue-style-loader' },
-      { loader: 'css-loader', options: { sourceMap: false } },
+      {
+        loader: 'css-loader', options: { sourceMap: false },
+      },
     ],
   },
 
@@ -74,7 +78,18 @@ module.exports = [
       env.prod && env.client
         ? { loader: MiniCssExtractPlugin.loader }
         : { loader: 'vue-style-loader' },
-      { loader: 'css-loader', options: { sourceMap: false } },
+      {
+        loader: 'css-loader', options: { sourceMap: false },
+      },
+      {
+        loader: 'postcss-loader',
+        options: {
+          sourceMap: true,
+          config: {
+            path: path.resolve(__dirname, 'postcss.config.js'),
+          },
+        },
+      },
       {
         loader: 'sass-loader',
         options: {
