@@ -24,8 +24,7 @@
     "vue-meta": "*",
     "vue-router": "*",
     "vuex-router-sync": "*",
-    "vue-server-renderer": "*",
-    "v-lazy-image": "*"
+    "vue-server-renderer": "*"
   },
   "devDependencies": {
     "@babel/core": "*",

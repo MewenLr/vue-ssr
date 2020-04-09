@@ -7,10 +7,6 @@
       router-link(to="/") Go to Home
       router-link(to="/about") Go to About
     router-view
-    v-lazy-image.lazy-img(
-      :src="require('@/assets/images/telescope.jpg')"
-      :src-placeholder="require('@/assets/images/telescope-low.jpg')"
-    )
 </template>
 
 <script>
@@ -49,9 +45,4 @@ export default {
   background-color: lightblue
   height: 200vh
   width: 500px
-
-.lazy-img
-  height: 150px
-  margin-top: 100vh
-  width: 250px
 </style>
