@@ -7,5 +7,5 @@ module.exports = {
     ? path.resolve(__dirname, '../..', 'server/index.html')
     : /* default */ 'index.html',
   customBody: env.prod ? '<!--vue-ssr-outlet-->' : '<div id="app"></div>',
-  inject: env.dev,
+  inject: /* don't reinject assets in prod */ env.dev,
 }

@@ -7,7 +7,6 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 const { BundleAnalyzerPlugin } = require('webpack-bundle-analyzer')
 const VueSSRClientPlugin = require('vue-server-renderer/client-plugin')
 const VueSSRServerPlugin = require('vue-server-renderer/server-plugin')
-const OptimizeCSSAssetsPlugin = require('optimize-css-assets-webpack-plugin')
 
 const env = require('./helpers/environments')
 const terserOpts = require('./optimization/terser')
@@ -56,10 +55,7 @@ module.exports = merge(baseWebpackConfig, {
 
   optimization: {
     minimize: true,
-    minimizer: [
-      new TerserPlugin(terserOpts),
-      new OptimizeCSSAssetsPlugin({}),
-    ],
+    minimizer: [new TerserPlugin(terserOpts)],
     splitChunks: chunksOpts,
   },
 

@@ -69,7 +69,7 @@ module.exports = [
 
   /* sass-loader */
   {
-    test: /\.sass$/,
+    test: /\.s(a|c)ss$/,
     use: [
       env.prod && env.client
         ? { loader: MiniCssExtractPlugin.loader }

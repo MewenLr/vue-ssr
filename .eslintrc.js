@@ -1,40 +1,38 @@
-const path = require('path')
-
 module.exports = {
-  'env': {
+  env: {
     'browser': true,
     'es6': true,
     'mocha': true,
     'node': true,
     'jest': true,
   },
-  'settings': {
+  settings: {
     'import/resolver': {
       'webpack': {
         'config': './webpack/webpack.config.js',
       },
     },
   },
-  'extends': [
+  extends: [
     'airbnb-base',
     'plugin:vue/strongly-recommended',
   ],
-  'globals': {
+  globals: {
     'Atomics': 'readonly',
     'SharedArrayBuffer': 'readonly',
     'expect': true,
   },
-  'parser': 'vue-eslint-parser',
-  'parserOptions': {
+  parser: 'vue-eslint-parser',
+  parserOptions: {
     'ecmaVersion': 2018,
     'sourceType': 'module',
     'parser': 'babel-eslint',
     'allowImportExportEverywhere': true,
   },
-  'plugins': [
+  plugins: [
     'vue',
   ],
-  'rules': {
+  rules: {
     'linebreak-style': 'off',
     'no-return-assign': 'off',
     'semi': ['error', 'never'],
